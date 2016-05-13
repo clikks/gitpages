@@ -75,6 +75,7 @@ deploy:
     
 backup:
     type: git
+    theme: next
     repository:
        github: git@github.com:clikks/clikks.github.io.git,blog_backup
        coding: git@git.coding.net:turbotig/turbotig.git,master
