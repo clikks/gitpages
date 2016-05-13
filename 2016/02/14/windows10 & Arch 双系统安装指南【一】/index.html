@@ -1,0 +1,695 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="linux,archlinux,cinnamon,windows10," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Blog of Clikks" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="Arch Linux是一款简洁优雅的GNU/Linux发行版，采用滚动升级的形式，只提供最基础的系统，一切配置都需要用户根据需要自行解决。
+   Arch 的哲学：Keep It Simple, Stupid
+Cinnamon是一款很适合上手的Linux桌面，桌面布局类似GNOME 2；然而，底层的技术又是基于GNOME Shell（GNOME 3）。目前Cinnamon是最流行的发行版Linu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="windows10 & Arch 双系统安装指南【一】">
+<meta property="og:url" content="http://clikks.top/2016/02/14/windows10 & Arch 双系统安装指南【一】/index.html">
+<meta property="og:site_name" content="Blog of Clikks">
+<meta property="og:description" content="Arch Linux是一款简洁优雅的GNU/Linux发行版，采用滚动升级的形式，只提供最基础的系统，一切配置都需要用户根据需要自行解决。
+   Arch 的哲学：Keep It Simple, Stupid
+Cinnamon是一款很适合上手的Linux桌面，桌面布局类似GNOME 2；然而，底层的技术又是基于GNOME Shell（GNOME 3）。目前Cinnamon是最流行的发行版Linu">
+<meta property="og:image" content="http://7xqo9u.com1.z0.glb.clouddn.com/arch%20cinnamonarch_linux_flat_wallpaper_by_debasishpatra-d7gmn9w.jpg">
+<meta property="og:updated_time" content="2016-02-18T13:21:02.797Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="windows10 & Arch 双系统安装指南【一】">
+<meta name="twitter:description" content="Arch Linux是一款简洁优雅的GNU/Linux发行版，采用滚动升级的形式，只提供最基础的系统，一切配置都需要用户根据需要自行解决。
+   Arch 的哲学：Keep It Simple, Stupid
+Cinnamon是一款很适合上手的Linux桌面，桌面布局类似GNOME 2；然而，底层的技术又是基于GNOME Shell（GNOME 3）。目前Cinnamon是最流行的发行版Linu">
+<meta name="twitter:image" content="http://7xqo9u.com1.z0.glb.clouddn.com/arch%20cinnamonarch_linux_flat_wallpaper_by_debasishpatra-d7gmn9w.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> windows10 & Arch 双系统安装指南【一】 | Blog of Clikks </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Blog of Clikks</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Writing & Record</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                windows10 & Arch 双系统安装指南【一】
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-02-14T16:02:53+08:00" content="2016-02-14">
+              2016-02-14
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/02/14/windows10 & Arch 双系统安装指南【一】/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/02/14/windows10 & Arch 双系统安装指南【一】/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="http://7xqo9u.com1.z0.glb.clouddn.com/arch%20cinnamonarch_linux_flat_wallpaper_by_debasishpatra-d7gmn9w.jpg" alt=""></p>
+<p>Arch Linux是一款简洁优雅的GNU/Linux发行版，采用滚动升级的形式，只提供最基础的系统，一切配置都需要用户根据需要自行解决。</p>
+<p>   Arch 的哲学：Keep It Simple, Stupid</p>
+<p>Cinnamon是一款很适合上手的Linux桌面，桌面布局类似GNOME 2；然而，底层的技术又是基于GNOME Shell（GNOME 3）。目前Cinnamon是最流行的发行版LinuxMint的默认桌面环境。<br><a id="more"></a></p>
+<hr>
+<h1 id="安装准备"><a href="#安装准备" class="headerlink" title="安装准备"></a>安装准备</h1><h2 id="系统镜像"><a href="#系统镜像" class="headerlink" title="系统镜像"></a>系统镜像</h2><p>　　到arch的官网可以下载到最新的<a href="https://www.archlinux.org/download/" target="_blank" rel="external">系统镜像</a>，然后使用<a href="http://pan.baidu.com/s/1o6WG5yM" target="_blank" rel="external">刻录软件</a>将镜像刻录到U盘中。</p>
+<h2 id="引导安装"><a href="#引导安装" class="headerlink" title="引导安装"></a>引导安装</h2><p>　　我是使用的UEFI模式引导的安装镜像，并且需要创建Windows10和Arch双系统。引导启动后会进入到arch的命令行模式。</p>
+<h2 id="网络配置"><a href="#网络配置" class="headerlink" title="网络配置"></a>网络配置</h2><h3 id="有线网络"><a href="#有线网络" class="headerlink" title="有线网络"></a>有线网络</h3><p>　　进入系统后首先需要配置好网络才能继续后面的安装，arch的系统安装高度依赖网络，安装程序会在启动时自动运行<strong>dhcpcd</strong>守护进程以尝试有线连接。可以使用和<strong>ping</strong>命令检查网络是否正常，如果网络不通，可以参照<a href="https://wiki.archlinux.org/index.php/Beginners%27_guide" target="_blank" rel="external">arch wiki</a>解决。</p>
+<h3 id="无线网络"><a href="#无线网络" class="headerlink" title="无线网络"></a>无线网络</h3><p>　　使用<strong>iw dev</strong>命令查看无线网卡的Interface名称，一般Interface名称为<strong>wlp</strong>开头，然后使用<strong>wifi-menu [Interface]</strong>连接wifi。</p>
+<h2 id="磁盘分区"><a href="#磁盘分区" class="headerlink" title="磁盘分区"></a>磁盘分区</h2><p>　　因为我们采用UEFI启动并且硬盘已经安装了windows10系统，所以默认磁盘已经是GPT分区格式。执行命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fdisk <span class="_">-l</span></span><br></pre></td></tr></table></figure></p>
+<p>　　可以看到现在的硬盘分区情况，<strong>/dev/sda</strong>这就是我们的硬盘名称，如果有多块硬盘，则命名就是sdb、sdc等。<br>　　安装windows10之后，在sda上会有四个分区，其中有个100M的sda2是EFI分区，也就是启动分区，这4个分区我们都不需要重新分区，我们只需要创建arch所需要的分区就可以了。<br>　　我的分区方案是 <strong>/</strong> 分区20G，<strong>swap</strong> 分区4G，其余的分给 <strong>home</strong> 分区，我的windows分区中最后一个分区sda4的结束位置是41.9G,所以arch的分区就要从这里开始：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">parted /dev/sda</span><br><span class="line">mkpart primary ext4 41.9G 62G</span><br><span class="line">mkpart primary linux-swap 62G 66G</span><br><span class="line">mkpart primart ext4 66G -1</span><br></pre></td></tr></table></figure></p>
+<h3 id="格式化分区"><a href="#格式化分区" class="headerlink" title="格式化分区"></a>格式化分区</h3><p>　　分区完成后退出parted分区，将分区格式化为指定的文件系统。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#查看所有分区，前4个分区都是windows的分区，我们格式化只针对后面几个分区。</span></span><br><span class="line">lsblk /dev/sda</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkfs.ext4 /dev/sda5</span><br><span class="line">mkfs.ext4 /dev/sda7</span><br><span class="line">mkswap /dev/sda6 <span class="comment">#格式化swap分区</span></span><br><span class="line">swapon /dev/sda6 <span class="comment">#激活swap分区</span></span><br></pre></td></tr></table></figure>
+<h3 id="挂载分区"><a href="#挂载分区" class="headerlink" title="挂载分区"></a>挂载分区</h3><p>　　先挂载 <strong>/</strong> (root)分区，其他目录都要在 <strong>/</strong> 分区中创建，然后再挂载。在安装环境中，使用 <strong>/mnt</strong> 目录挂载 <strong>root</strong> 分区：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mount /dev/sda5 /mnt  <span class="comment">#挂载根分区</span></span><br><span class="line">mkdir -p /mnt/&#123;home,boot&#125;  <span class="comment">#创建home目录</span></span><br><span class="line">mount /dev/sda7 /mnt/home  <span class="comment">#挂载home分区到home目录</span></span><br><span class="line">mount /dev/sda2 /mnt/boot <span class="comment">#将windows的EFI分区挂载到boot目录</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><h2 id="配置安装镜像"><a href="#配置安装镜像" class="headerlink" title="配置安装镜像"></a>配置安装镜像</h2><p>　　如果想要安装某个软件，必须先从 <strong>/etc/pacman.d/mirrorlist</strong> 中定义的镜像站中下载安装包到本地。在live系统里，该文件中所有的镜像站都默认开启，并且按照镜像系统被创建时各镜像站的与官方镜像站的同步状态和速度来排序。<br>　　当系统在下载软件包的时候，列表中排的越靠前的镜像站优先级越高。所以我们需要将国内的镜像源放在前面，提高下载速度：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/pacman.d/mirrorlist</span><br><span class="line"><span class="comment">#将下面两个镜像源复制到最前面</span></span><br><span class="line">Server = http://mirrors.ustc.edu.cn/archlinux/<span class="variable">$repo</span>/os/<span class="variable">$arch</span></span><br><span class="line">Server = http://mirrors.163.com/archlinux/<span class="variable">$repo</span>/os/<span class="variable">$arch</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="安装基础软件包"><a href="#安装基础软件包" class="headerlink" title="安装基础软件包"></a>安装基础软件包</h2><p>　　现在可以使用<strong>pacstrap</strong>安装基本系统：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacstrap -i /mnt base base-devel</span><br></pre></td></tr></table></figure></p>
+<h1 id="系统配置"><a href="#系统配置" class="headerlink" title="系统配置"></a>系统配置</h1><h2 id="生成分区表"><a href="#生成分区表" class="headerlink" title="生成分区表"></a>生成分区表</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">genfstab -U -p /mnt &gt; /mnt &gt; /mnt/etc/fstab</span><br></pre></td></tr></table></figure>
+<h2 id="chroot"><a href="#chroot" class="headerlink" title="chroot"></a>chroot</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arch-chroot /mnt /bin/bash</span><br></pre></td></tr></table></figure>
+<h2 id="本地化配置"><a href="#本地化配置" class="headerlink" title="本地化配置"></a>本地化配置</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/locale.gen</span><br><span class="line"><span class="comment">#找到下面几项并去掉前面的＃号</span></span><br><span class="line">en_US.UTF-8 UTF-8</span><br><span class="line">zh_CN.UTF-8 UTF-8</span><br><span class="line">zh_TW.UTF-8 UTF-8</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#执行locale-gen生成locale信息</span></span><br><span class="line">locale-gen</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#创建locale.conf并提交本地化选项</span></span><br><span class="line"><span class="built_in">echo</span> LANG=en_US.UTF-8 &gt; /etc/locale.conf</span><br></pre></td></tr></table></figure>
+<h2 id="时间配置"><a href="#时间配置" class="headerlink" title="时间配置"></a>时间配置</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ln <span class="_">-s</span> /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</span><br><span class="line">hwclock --systohc --utc</span><br></pre></td></tr></table></figure>
+<h2 id="设置Root密码"><a href="#设置Root密码" class="headerlink" title="设置Root密码"></a>设置Root密码</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">passwd  <span class="comment">#输入两次密码</span></span><br></pre></td></tr></table></figure>
+<h2 id="设置主机名"><a href="#设置主机名" class="headerlink" title="设置主机名"></a>设置主机名</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> Arch &gt; /etc/hostname</span><br><span class="line"><span class="comment">#修改主机名与上面相同</span></span><br><span class="line">vi /etc/hosts </span><br><span class="line"></span><br><span class="line"><span class="comment">#&lt;ip-address&gt;	&lt;hostname.domain.org&gt;	&lt;hostname&gt;</span></span><br><span class="line">127.0.0.1			localhost.localdomain  		arch</span><br><span class="line">::1				localhost.localdomain  		arch</span><br></pre></td></tr></table></figure>
+<h2 id="安装引导程序"><a href="#安装引导程序" class="headerlink" title="安装引导程序"></a>安装引导程序</h2><p>　　因为我们使用的是UEFI+GPT分区表的形式，所以我们安装<strong>systemd-boot</strong>到EFI分区：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#安装systemd-boot</span></span><br><span class="line">bootctl install</span><br><span class="line"><span class="comment">#使用示例配置文件创建引导入口</span></span><br><span class="line">cp /usr/share/systemd/bootctl/arch.conf /boot/loader/entries/</span><br><span class="line"><span class="comment">#查看根分区的PARTUUID</span></span><br><span class="line">blkid <span class="_">-s</span> PARTUUID -o value /dev/sda5</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#修改引导入口</span></span><br><span class="line">vi /boot/loader/entries/arch,conf</span><br><span class="line"><span class="comment">#将文件中PARTUUID后的XXX修改为刚刚获取的根目录的PARTUUID，rootfstype=XXX修改为ext4</span></span><br><span class="line">  title   Arch Linux</span><br><span class="line">  linux   /vmlinuz-linux</span><br><span class="line">  initrd  /initramfs-linux.img</span><br><span class="line">  options root=PARTUUID=2c3931f1-9659-4ad0-aa50-0b54754472bb rootfstype=ext4 add_efi_memmap</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#修改启动等待时间，去掉timeout前面的#号</span></span><br><span class="line">vi /boot/loader/loader.conf</span><br><span class="line">  timeout 3</span><br></pre></td></tr></table></figure>
+<p>不需要配置windows的启动项，系统会自动读取windows的启动项并在开机时列出。</p>
+<h2 id="网络配置-1"><a href="#网络配置-1" class="headerlink" title="网络配置"></a>网络配置</h2><p>　　前面已经配置过网络，这次我们是为新系统配置的网络，使得重启之后的新系统能够正常使用网络。</p>
+<h3 id="无线网络-1"><a href="#无线网络-1" class="headerlink" title="无线网络"></a>无线网络</h3><p>安装<strong>iw,dialog</strong>和<strong>wpa_supplicant</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S iw wpa_supplicant dialog</span><br></pre></td></tr></table></figure></p>
+<h3 id="有线网络-1"><a href="#有线网络-1" class="headerlink" title="有线网络"></a>有线网络</h3><p>有线网络只需要开机启动<strong>dhcpcd</strong>服务即可：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> dhcpcd.service</span><br></pre></td></tr></table></figure></p>
+<h2 id="卸载分区并重启"><a href="#卸载分区并重启" class="headerlink" title="卸载分区并重启"></a>卸载分区并重启</h2><p>离开chroot环境然后就可以重启系统，进入我们的新系统了：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">exit</span></span><br><span class="line">reboot</span><br></pre></td></tr></table></figure></p>
+<p>　　重启时可以看到我们启动选项有archlinux和windows，选择archlinux，就可以进入我们的新系统了，当然现在系统只有命令行模式，之后我们为系统安装图形界面。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/linux/" rel="tag">#linux</a>
+          
+            <a href="/tags/archlinux/" rel="tag">#archlinux</a>
+          
+            <a href="/tags/cinnamon/" rel="tag">#cinnamon</a>
+          
+            <a href="/tags/windows10/" rel="tag">#windows10</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/02/01/github和gitcafe双线托管hexo博客/" rel="next" title="github和gitcafe双线托管hexo博客">
+                <i class="fa fa-chevron-left"></i> github和gitcafe双线托管hexo博客
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/02/14/windows10-Arch-双系统安装指南【二】/" rel="prev" title="windows10 & Arch 双系统安装指南【二】">
+                windows10 & Arch 双系统安装指南【二】 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/02/14/windows10 & Arch 双系统安装指南【一】/"
+     data-title="windows10 & Arch 双系统安装指南【一】"
+     data-content=""
+     data-url="http://clikks.top/2016/02/14/windows10 & Arch 双系统安装指南【一】/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/02/14/windows10 & Arch 双系统安装指南【一】/"
+           data-title="windows10 & Arch 双系统安装指南【一】" data-url="http://clikks.top/2016/02/14/windows10 & Arch 双系统安装指南【一】/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Clikks" />
+          <p class="site-author-name" itemprop="name">Clikks</p>
+          <p class="site-description motion-element" itemprop="description">VENI VIDI VICI</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/clikks" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2414755015" target="_blank" title="weibo">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#安装准备"><span class="nav-number">1.</span> <span class="nav-text">安装准备</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#系统镜像"><span class="nav-number">1.1.</span> <span class="nav-text">系统镜像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引导安装"><span class="nav-number">1.2.</span> <span class="nav-text">引导安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网络配置"><span class="nav-number">1.3.</span> <span class="nav-text">网络配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#有线网络"><span class="nav-number">1.3.1.</span> <span class="nav-text">有线网络</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#无线网络"><span class="nav-number">1.3.2.</span> <span class="nav-text">无线网络</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#磁盘分区"><span class="nav-number">1.4.</span> <span class="nav-text">磁盘分区</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#格式化分区"><span class="nav-number">1.4.1.</span> <span class="nav-text">格式化分区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#挂载分区"><span class="nav-number">1.4.2.</span> <span class="nav-text">挂载分区</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#配置安装镜像"><span class="nav-number">2.1.</span> <span class="nav-text">配置安装镜像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装基础软件包"><span class="nav-number">2.2.</span> <span class="nav-text">安装基础软件包</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#系统配置"><span class="nav-number">3.</span> <span class="nav-text">系统配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#生成分区表"><span class="nav-number">3.1.</span> <span class="nav-text">生成分区表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#chroot"><span class="nav-number">3.2.</span> <span class="nav-text">chroot</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本地化配置"><span class="nav-number">3.3.</span> <span class="nav-text">本地化配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#时间配置"><span class="nav-number">3.4.</span> <span class="nav-text">时间配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置Root密码"><span class="nav-number">3.5.</span> <span class="nav-text">设置Root密码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置主机名"><span class="nav-number">3.6.</span> <span class="nav-text">设置主机名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装引导程序"><span class="nav-number">3.7.</span> <span class="nav-text">安装引导程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网络配置-1"><span class="nav-number">3.8.</span> <span class="nav-text">网络配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#无线网络-1"><span class="nav-number">3.8.1.</span> <span class="nav-text">无线网络</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#有线网络-1"><span class="nav-number">3.8.2.</span> <span class="nav-text">有线网络</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#卸载分区并重启"><span class="nav-number">3.9.</span> <span class="nav-text">卸载分区并重启</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Clikks</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"clikks"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script>
+
+
+</body>
+</html>

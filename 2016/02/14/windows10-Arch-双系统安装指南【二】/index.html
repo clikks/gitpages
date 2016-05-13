@@ -1,0 +1,671 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="linux,archlinux,cinnamon,windows10," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Blog of Clikks" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="在上一篇我们已经完成了基础系统的安装，目前开机archlinux只具有基础的命令行模式，本篇我们来完成一些基础配置和Cinnamon图形界面的安装。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="windows10 & Arch 双系统安装指南【二】">
+<meta property="og:url" content="http://clikks.top/2016/02/14/windows10-Arch-双系统安装指南【二】/index.html">
+<meta property="og:site_name" content="Blog of Clikks">
+<meta property="og:description" content="在上一篇我们已经完成了基础系统的安装，目前开机archlinux只具有基础的命令行模式，本篇我们来完成一些基础配置和Cinnamon图形界面的安装。">
+<meta property="og:image" content="http://7xqo9u.com1.z0.glb.clouddn.com/arch%20cinnamon%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE20160214223028.png">
+<meta property="og:updated_time" content="2016-02-18T13:16:17.164Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="windows10 & Arch 双系统安装指南【二】">
+<meta name="twitter:description" content="在上一篇我们已经完成了基础系统的安装，目前开机archlinux只具有基础的命令行模式，本篇我们来完成一些基础配置和Cinnamon图形界面的安装。">
+<meta name="twitter:image" content="http://7xqo9u.com1.z0.glb.clouddn.com/arch%20cinnamon%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE20160214223028.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> windows10 & Arch 双系统安装指南【二】 | Blog of Clikks </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Blog of Clikks</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Writing & Record</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                windows10 & Arch 双系统安装指南【二】
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-02-14T20:53:46+08:00" content="2016-02-14">
+              2016-02-14
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/02/14/windows10-Arch-双系统安装指南【二】/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/02/14/windows10-Arch-双系统安装指南【二】/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="http://7xqo9u.com1.z0.glb.clouddn.com/arch%20cinnamon%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE20160214223028.png" alt=""></p>
+<p>在上一篇我们已经完成了基础系统的安装，目前开机archlinux只具有基础的命令行模式，本篇我们来完成一些基础配置和Cinnamon图形界面的安装。<br><a id="more"></a></p>
+<hr>
+<h1 id="基础设置"><a href="#基础设置" class="headerlink" title="基础设置"></a>基础设置</h1><h2 id="添加用户"><a href="#添加用户" class="headerlink" title="添加用户"></a>添加用户</h2><p>　　新安装的系统只有一个root用户，日常使用root用户登陆系统会带来很大的安全隐患，所以，我们要添加一个用户，使用这个用户日常登陆系统：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#添加arch用户并添加到wheel用户组</span></span><br><span class="line">useradd -m -G wheel <span class="_">-s</span> /bin/bash arch</span><br><span class="line"><span class="comment">#为arch用户设置密码</span></span><br><span class="line">passwd arch</span><br><span class="line"><span class="comment">#为wheel用户组配置sudo权限</span></span><br><span class="line">visudo</span><br><span class="line"><span class="comment">#找到下面这一行，并去掉前面的#号</span></span><br><span class="line">%wheel ALL=(ALL) ALL</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#退出登陆，使用arch用户重新登陆系统</span></span><br><span class="line"><span class="built_in">exit</span></span><br></pre></td></tr></table></figure>
+<h2 id="添加Arch-Linux中文社区仓库"><a href="#添加Arch-Linux中文社区仓库" class="headerlink" title="添加Arch Linux中文社区仓库"></a>添加Arch Linux中文社区仓库</h2><p>Arch Linux 中文社区仓库 是由 Arch Linux 中文社区驱动的非官方用户仓库。包含中文用户常用软件、工具、字体/美化包等。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vi /etc/pacman.conf</span><br><span class="line"><span class="comment">#在末尾添加以下内容</span></span><br><span class="line">[archlinuxcn]</span><br><span class="line">SigLevel = Optional TrustAll</span><br><span class="line">Server = https://mirrors.ustc.edu.cn/archlinuxcn/<span class="variable">$arch</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#刷新pacman数据库</span></span><br><span class="line">$ sudo pacman -Syy</span><br><span class="line"><span class="comment">#安装archlinuxcn-keyring 包以导入 GPG key</span></span><br><span class="line">$ sudo pacman -S archlinuxcn-keyring</span><br></pre></td></tr></table></figure>
+<h1 id="基础软件安装"><a href="#基础软件安装" class="headerlink" title="基础软件安装"></a>基础软件安装</h1><p>　　现在我们安装一些基本的软件：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pacman -S bash-completion yaourt</span><br></pre></td></tr></table></figure></p>
+<h1 id="Cinnamon图形界面安装"><a href="#Cinnamon图形界面安装" class="headerlink" title="Cinnamon图形界面安装"></a>Cinnamon图形界面安装</h1><h2 id="xorg、显卡驱动安装"><a href="#xorg、显卡驱动安装" class="headerlink" title="xorg、显卡驱动安装"></a>xorg、显卡驱动安装</h2><p>首先安装xorg-server和显卡驱动<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pacman -S xorg-server</span><br><span class="line"><span class="comment">#nvidia显卡安装xf86-video-nouveau，Intel核心显卡安装xf86-video-intel </span></span><br><span class="line">$ sudo pacman -S  xf86-video-intel</span><br></pre></td></tr></table></figure></p>
+<h2 id="字体安装"><a href="#字体安装" class="headerlink" title="字体安装"></a>字体安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pacman -S ttf-dejavu wqy-microhei</span><br></pre></td></tr></table></figure>
+<h2 id="安装显示管理器"><a href="#安装显示管理器" class="headerlink" title="安装显示管理器"></a>安装显示管理器</h2><p>LightDM 是一个跨桌面环境的显示管理器，具有代码轻量，跨桌面等特点。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pacman -S  lightdm-gtk-greeter</span><br><span class="line">$ sudo systemctl <span class="built_in">enable</span> lightdm</span><br></pre></td></tr></table></figure></p>
+<h2 id="Cinnamon安装"><a href="#Cinnamon安装" class="headerlink" title="Cinnamon安装"></a>Cinnamon安装</h2><p>正式安装cinnamon桌面<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pacman -S cinnamon</span><br></pre></td></tr></table></figure></p>
+<h2 id="安装应用程序"><a href="#安装应用程序" class="headerlink" title="安装应用程序"></a>安装应用程序</h2><p>　　为了便于使用，我们需要安装一些应用软件：终端，触摸板驱动、声音驱动、蓝牙，语言模块等<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pacman -S gnome-terminal xf86-input-synaptics alsa-utils</span><br><span class="line">$ yaourt -S blueberry mintlocale</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 开机启动网络服务</span></span><br><span class="line">$ sudo systemctl <span class="built_in">enable</span> NetworkManager</span><br></pre></td></tr></table></figure>
+<p>　　现在重新启动系统，就可以进入我们的Cinnamon桌面啦，下一章我们进行桌面的软件安装和美化配置。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/linux/" rel="tag">#linux</a>
+          
+            <a href="/tags/archlinux/" rel="tag">#archlinux</a>
+          
+            <a href="/tags/cinnamon/" rel="tag">#cinnamon</a>
+          
+            <a href="/tags/windows10/" rel="tag">#windows10</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/02/14/windows10 & Arch 双系统安装指南【一】/" rel="next" title="windows10 & Arch 双系统安装指南【一】">
+                <i class="fa fa-chevron-left"></i> windows10 & Arch 双系统安装指南【一】
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/02/14/windows10-Arch-双系统安装指南【三】/" rel="prev" title="windows10 & Arch 双系统安装指南【三】">
+                windows10 & Arch 双系统安装指南【三】 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/02/14/windows10-Arch-双系统安装指南【二】/"
+     data-title="windows10 & Arch 双系统安装指南【二】"
+     data-content=""
+     data-url="http://clikks.top/2016/02/14/windows10-Arch-双系统安装指南【二】/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/02/14/windows10-Arch-双系统安装指南【二】/"
+           data-title="windows10 & Arch 双系统安装指南【二】" data-url="http://clikks.top/2016/02/14/windows10-Arch-双系统安装指南【二】/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Clikks" />
+          <p class="site-author-name" itemprop="name">Clikks</p>
+          <p class="site-description motion-element" itemprop="description">VENI VIDI VICI</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/clikks" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2414755015" target="_blank" title="weibo">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基础设置"><span class="nav-number">1.</span> <span class="nav-text">基础设置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#添加用户"><span class="nav-number">1.1.</span> <span class="nav-text">添加用户</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加Arch-Linux中文社区仓库"><span class="nav-number">1.2.</span> <span class="nav-text">添加Arch Linux中文社区仓库</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基础软件安装"><span class="nav-number">2.</span> <span class="nav-text">基础软件安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Cinnamon图形界面安装"><span class="nav-number">3.</span> <span class="nav-text">Cinnamon图形界面安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#xorg、显卡驱动安装"><span class="nav-number">3.1.</span> <span class="nav-text">xorg、显卡驱动安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字体安装"><span class="nav-number">3.2.</span> <span class="nav-text">字体安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装显示管理器"><span class="nav-number">3.3.</span> <span class="nav-text">安装显示管理器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cinnamon安装"><span class="nav-number">3.4.</span> <span class="nav-text">Cinnamon安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装应用程序"><span class="nav-number">3.5.</span> <span class="nav-text">安装应用程序</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Clikks</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"clikks"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script>
+
+
+</body>
+</html>
